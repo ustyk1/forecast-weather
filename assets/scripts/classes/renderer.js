@@ -107,7 +107,8 @@ export class Renderer {
       <li class="box details__pop detail">
         <h4 class="detail__name">
           <div style="background-image: url(./assets/svg/water-icon.svg)"></div>
-          <span>probability of</span>
+          <span>probability </span>
+          <span>of</span>
           <span> precipitation</span>
         </h4>
         <p class="detail__value">${pop} %</p>

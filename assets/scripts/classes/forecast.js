@@ -19,8 +19,14 @@ export class ForecastManager  {
     const day = date.getDate();
     const weekdayIndex = date.getDay();
 
-    return `${this._daysOfTheWeekFull[weekdayIndex]} ${day}.${month}.${year}`;
+    return `${this._daysOfTheWeekFull[weekdayIndex]} ${this._addZero(day)}.${this._addZero(month)}.${year}`;
   } 
+
+  _addZero(number) {
+    let result = number;
+    if (number < 10) result = "0" + number;
+    return result
+  }
   
   _limitValuesOfDaySteps(numberOfDay) {
     const from = numberOfDay * this._NUMBER_OF_STEPS_PER_DAY - this._NUMBER_OF_STEPS_PER_DAY;
@@ -62,8 +68,8 @@ export class ForecastManager  {
     const sunriseHours = sunriseTimeStampUTC.getHours();
     const sunriseMinutes = sunriseTimeStampUTC.getMinutes();
 
-    const sunset = `${sunsetHours}:${sunsetMinutes}`;
-    const sunrise = `${sunriseHours}:${sunriseMinutes}`;
+    const sunset = `${this._addZero(sunsetHours)}:${this._addZero(sunsetMinutes)}`;
+    const sunrise = `${this._addZero(sunriseHours)}:${this._addZero(sunriseMinutes)}`;
 
     return { city, sunset, sunrise };
   }
